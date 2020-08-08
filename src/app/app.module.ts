@@ -8,6 +8,7 @@ import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { PieComponent } from './componentes/pie/pie.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { UserIDCheckComponent } from './componentes/user-idcheck/user-idcheck.component';
+import { ChangeUserIDComponent } from './componentes/change-user-id/change-user-id.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserIDCheckComponent } from './componentes/user-idcheck/user-idcheck.co
     CabeceraComponent,
     PieComponent,
     InicioComponent,
-    UserIDCheckComponent
+    UserIDCheckComponent,
+    ChangeUserIDComponent
   ],
   imports: [
     BrowserModule,

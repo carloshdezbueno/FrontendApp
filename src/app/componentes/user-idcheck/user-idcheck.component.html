@@ -1,0 +1,11 @@
+<router-outlet *ngIf="userID; else elseBlock"></router-outlet>
+<ng-template #elseBlock>
+    <div class="alert alert-danger mt-2" role="alert">
+        No tiene ningun UserID Seleccionado, introduzca uno
+    </div>
+
+    <input class="form-control mb-sm-2 w-25" type="input" placeholder="UserID" data-toggle="dropdown"
+        aria-label="Search" [value]="userID" #inputUserID>
+    <button class="btn btn-primary mb-2" (click)="setUserID(inputUserID.value)">Guardar</button>
+
+</ng-template>

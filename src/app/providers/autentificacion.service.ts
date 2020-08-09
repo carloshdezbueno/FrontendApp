@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class AutentificacionService {
 
   private userID:string = null;
+
+  private apiPath:string = 'http://localhost:8080/v1';
 
   constructor(private http: HttpClient) { 
     this.userID = localStorage.getItem('userID');
@@ -19,5 +21,15 @@ export class AutentificacionService {
   setUserID(userID:string){
     this.userID = userID;
     localStorage.setItem('userID', userID);
+  }
+
+  getDatosUserID(){
+    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8', "Connection": "keep-alive"});
+    const options = {
+      headers: headers,
+      body: '{"userID":"' + this.userID + '"}',
+    };
+    console.log(options.body);
+    return this.http.get(this.apiPath+"/getData", options);
   }
 }

@@ -9,6 +9,7 @@ import { PieComponent } from './componentes/pie/pie.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { UserIDCheckComponent } from './componentes/user-idcheck/user-idcheck.component';
 import { ChangeUserIDComponent } from './componentes/change-user-id/change-user-id.component';
+import { ItemTiempoComponent } from './componentes/item-tiempo/item-tiempo.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ChangeUserIDComponent } from './componentes/change-user-id/change-user-
     PieComponent,
     InicioComponent,
     UserIDCheckComponent,
-    ChangeUserIDComponent
+    ChangeUserIDComponent,
+    ItemTiempoComponent
   ],
   imports: [
     BrowserModule,

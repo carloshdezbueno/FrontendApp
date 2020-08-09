@@ -9,10 +9,14 @@ import { AutentificacionService } from 'src/app/providers/autentificacion.servic
 export class InicioComponent implements OnInit {
 
   userID:string;
+  datos:any = null;
   constructor(private autService:AutentificacionService) { 
     this.userID = this.autService.getUserID();
   }
   ngOnInit(): void {
+    this.autService.getDatosUserID().subscribe( (datos:any) => {
+      this.datos = datos;
+    });
   }
 
 }

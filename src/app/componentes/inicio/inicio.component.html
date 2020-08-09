@@ -1,1 +1,9 @@
 <p>Tu userID es: {{userID}}</p>
+
+<div *ngIf="datos && datos != null; else elseBlock">
+    <app-item-tiempo *ngFor="let item of datos" [item]="item"></app-item-tiempo>
+</div>
+
+<ng-template #elseBlock>
+    No hay datos
+</ng-template>

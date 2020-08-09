@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Tiempo } from 'src/app/tiempo.model';
 
 @Component({
   selector: 'app-item-tiempo',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ItemTiempoComponent implements OnInit {
 
   @Input()
-  item:any = null;
+  item:Tiempo = null;
 
   constructor() { }
 

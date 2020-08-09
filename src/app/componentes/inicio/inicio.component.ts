@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutentificacionService } from 'src/app/providers/autentificacion.service';
+import { Tiempo } from 'src/app/tiempo.model';
 
 @Component({
   selector: 'app-inicio',
@@ -9,13 +10,16 @@ import { AutentificacionService } from 'src/app/providers/autentificacion.servic
 export class InicioComponent implements OnInit {
 
   userID:string;
-  datos:any = null;
+  datos:Tiempo[] = null;
   constructor(private autService:AutentificacionService) { 
     this.userID = this.autService.getUserID();
   }
   ngOnInit(): void {
     this.autService.getDatosUserID().subscribe( (datos:any) => {
-      this.datos = datos;
+      
+      if(datos.data.length != 0){
+        this.datos = datos.data.sort((a, b) => a - b );
+      }
     });
   }
 

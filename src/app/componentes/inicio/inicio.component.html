@@ -1,6 +1,4 @@
-<p>Tu userID es: {{userID}}</p>
-
-<div *ngIf="datos && datos != null; else elseBlock">
+<div *ngIf="datos && datos != null; else elseBlock" class="d-flex justify-content-around flex-wrap align-content-around">
     <app-item-tiempo *ngFor="let item of datos" [item]="item"></app-item-tiempo>
 </div>
 

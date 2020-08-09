@@ -24,12 +24,14 @@ export class AutentificacionService {
   }
 
   getDatosUserID(){
-    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8', "Connection": "keep-alive"});
+    const headers = new HttpHeaders({'Content-Type':'application/json', 'Accept': '*/*'});
     const options = {
       headers: headers,
-      body: '{"userID":"' + this.userID + '"}',
-    };
-    console.log(options.body);
+      //body: '{"userID":"' + this.userID + '"}',
+      params: {
+        "userID": this.userID
+    }
+    }; 
     return this.http.get(this.apiPath+"/getData", options);
   }
 }

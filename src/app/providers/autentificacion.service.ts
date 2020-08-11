@@ -66,10 +66,10 @@ export class AutentificacionService {
     return this.http.get(this.apiPath + "/getData", options);
   }
 
-  sendOrden() {
+  sendOrden(orden:string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': '*/*' });
     const options = {
-      orden: "2"
+      orden: orden
 
     };
 

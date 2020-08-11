@@ -8,13 +8,13 @@ import { AutentificacionService } from 'src/app/providers/autentificacion.servic
 })
 export class MandarOrdenComponent implements OnInit {
 
+  valor = 0;
   constructor(private autService:AutentificacionService) { }
 
   ngOnInit(): void {
   }
 
-  sendOrder(){
-    this.autService.sendOrden();
-    console.log("Mandado");
+  sendOrder(orden){
+    this.autService.sendOrden(orden);
   }
 }

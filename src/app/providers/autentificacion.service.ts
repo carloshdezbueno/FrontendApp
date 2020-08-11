@@ -8,10 +8,13 @@ export class AutentificacionService {
 
   private userID:string = null;
 
+  private pathPrincipal:string = 'http://localhost:8080';
+
   private apiPath:string = 'http://localhost:8080/v1';
 
   constructor(private http: HttpClient) { 
     this.userID = localStorage.getItem('userID');
+    //Recuperar uri de mongoDB
   }
 
   getUserID(){
@@ -33,5 +36,15 @@ export class AutentificacionService {
     }
     }; 
     return this.http.get(this.apiPath+"/getData", options);
+  }
+
+  sendOrden(){
+    const headers = new HttpHeaders({'Content-Type':'application/json', 'Accept': '*/*'});
+    const options = {
+        orden: "2"
+    
+    }; 
+
+    return this.http.post(this.apiPath+"/sendOrder", options).subscribe();
   }
 }

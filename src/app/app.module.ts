@@ -10,6 +10,8 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { UserIDCheckComponent } from './componentes/user-idcheck/user-idcheck.component';
 import { ChangeUserIDComponent } from './componentes/change-user-id/change-user-id.component';
 import { ItemTiempoComponent } from './componentes/item-tiempo/item-tiempo.component';
+import { Error404Component } from './componentes/error404/error404.component';
+import { MandarOrdenComponent } from './componentes/mandar-orden/mandar-orden.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ItemTiempoComponent } from './componentes/item-tiempo/item-tiempo.compo
     InicioComponent,
     UserIDCheckComponent,
     ChangeUserIDComponent,
-    ItemTiempoComponent
+    ItemTiempoComponent,
+    Error404Component,
+    MandarOrdenComponent
   ],
   imports: [
     BrowserModule,

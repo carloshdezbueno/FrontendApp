@@ -12,6 +12,8 @@ export class ChangeUserIDComponent implements OnInit {
 
   userID:string;
 
+  cambiado:Boolean = false;
+
   @Output() refreshUserID:EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private autService:AutentificacionService) { 
@@ -25,7 +27,7 @@ export class ChangeUserIDComponent implements OnInit {
   setUserID(userID){
     this.autService.setUserID(userID);
     this.refreshUserID.emit(userID);
-    
+    this.cambiado = true;
   }
 
 }

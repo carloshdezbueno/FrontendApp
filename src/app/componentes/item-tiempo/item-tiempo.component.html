@@ -1,0 +1,26 @@
+<div class="card text-center mb-4">
+    <div class="card-header">
+        {{item.UserID}}
+        <br>
+        <span class="badge badge-primary" *ngIf="item.luz; else elseBlockLuz">Dia</span>
+        <ng-template #elseBlockLuz>
+            <span class="badge badge-dark ">Noche</span>
+        </ng-template>
+
+    </div>
+    <div class="card-body">
+        <span class="badge badge-danger" *ngIf="item.movimiento; else elseBlockMove">Se ha detectado movimiento</span>
+        <ng-template #elseBlockMove>
+            <span class="badge badge-success">No se ha detectado movimiento</span>
+        </ng-template>
+
+        <h5 class="card-title"></h5>
+        <p class="card-text">Temperatura: {{item.temperatura}}ºC</p>
+        <p class="card-text">Humedad: {{item.humedad}}%</p>
+        
+        <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+    </div>
+    <div class="card-footer text-muted">
+        {{item.timestamp | date: 'short': 'UTC'}}
+    </div>
+</div>

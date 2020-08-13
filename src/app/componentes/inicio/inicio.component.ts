@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AutentificacionService } from 'src/app/providers/autentificacion.service';
+import { Tiempo } from 'src/app/tiempo.model';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
-
+  userID:string;
+  datos:Tiempo[] = null;
+  constructor(private autService:AutentificacionService) { 
+    this.userID = this.autService.getUserID();
+  }
   ngOnInit(): void {
+    this.autService.getDatosUserID().subscribe( (datos:any) => {
+      
+      if(datos.data.length != 0){
+        this.datos = datos.data.sort((a, b) => a - b );
+      }
+    });
   }
 
 }

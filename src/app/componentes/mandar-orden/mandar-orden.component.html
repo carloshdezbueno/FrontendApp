@@ -1,0 +1,8 @@
+<input class="form-control mb-sm-2 w-25 mb-4" type="number" placeholder="Orden" aria-label="Search" [value]="valor"
+    #inputOrden>
+
+<button class="btn btn-primary "(click)="sendOrder(inputOrden.value)">Mandar orden</button>
+
+<button class="btn btn-primary ml-2" (click)="sendOrder('abrirVentanas')">Abrir ventanas</button>
+
+<button class="btn btn-primary ml-2" (click)="sendOrder('cerrarVentanas')">Cerrar ventanas</button>

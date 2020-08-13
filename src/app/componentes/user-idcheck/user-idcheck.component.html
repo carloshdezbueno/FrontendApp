@@ -1,0 +1,9 @@
+<router-outlet *ngIf="userID; else elseBlock"></router-outlet>
+<ng-template #elseBlock>
+    <div class="alert alert-danger mt-2" role="alert">
+        No tiene ningun UserID Seleccionado, introduzca uno
+    </div>
+
+    <app-change-user-id (refreshUserID)="refreshUserid($event)"></app-change-user-id>
+
+</ng-template>

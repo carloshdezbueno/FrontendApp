@@ -1,1 +1,7 @@
-<p>inicio works!</p>
+<div *ngIf="datos && datos != null; else elseBlock" class="d-flex justify-content-around flex-wrap align-content-around">
+    <app-item-tiempo *ngFor="let item of datos" [item]="item"></app-item-tiempo>
+</div>
+
+<ng-template #elseBlock>
+    No hay datos
+</ng-template>

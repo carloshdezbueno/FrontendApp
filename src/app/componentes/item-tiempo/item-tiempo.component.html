@@ -9,9 +9,9 @@
 
     </div>
     <div class="card-body">
-        <span class="badge badge-danger" *ngIf="item.movimiento; else elseBlockMove">Se ha detectado movimiento</span>
+        <span class="badge badge-danger" *ngIf="item.movimiento; else elseBlockMove">Si hay movimiento</span>
         <ng-template #elseBlockMove>
-            <span class="badge badge-success">No se ha detectado movimiento</span>
+            <span class="badge badge-success">No hay movimiento</span>
         </ng-template>
 
         <h5 class="card-title"></h5>

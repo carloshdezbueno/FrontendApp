@@ -15,6 +15,7 @@ export class InicioComponent implements OnInit {
     this.userID = this.autService.getUserID();
   }
   ngOnInit(): void {
+    console.log(this.autService.getApiPath())
     this.autService.getDatosUserID().subscribe( (datos:any) => {
       
       if(datos.data.length != 0){

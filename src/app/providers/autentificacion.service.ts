@@ -22,6 +22,10 @@ export class AutentificacionService {
     }
   }
 
+  getApiPath(){
+    return this.apiPath;
+  }
+
   getUserID() {
     return this.userID;
   }
@@ -38,15 +42,10 @@ export class AutentificacionService {
 
     this.http.get(this.pathPrincipal + "/getApiPath", options).subscribe( (datos:any)=> {
       this.apiPath = datos.apiPath;
-      console.log(this.apiPath)
-
-      //Borrar al acabar
-      this.apiPath = "http://192.168.1.108:8080/v1"
-      //Borrar al acabar
+      console.log(this.apiPath);
 
     } );
   }
-
 
   setUserID(userID: string) {
     this.userID = userID;

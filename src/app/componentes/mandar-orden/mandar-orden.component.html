@@ -1,8 +1,15 @@
-<input class="form-control mb-sm-2 w-25 mb-4" type="number" placeholder="Orden" aria-label="Search" [value]="valor"
-    #inputOrden>
 
-<button class="btn btn-primary "(click)="sendOrder(inputOrden.value)">Mandar orden</button>
+<div class="alert alert-danger mt-2" role="alert" *ngIf="this.autService.getApiPath() == 'NotFound'; else elseBlock">
+    El userID no esta registrado como valido
+</div>
+<ng-template #elseBlock>
 
-<button class="btn btn-primary ml-2" (click)="sendOrder('abrirVentana')">Abrir ventanas</button>
-
-<button class="btn btn-primary ml-2" (click)="sendOrder('cerrarVentana')">Cerrar ventanas</button>
+    <input class="form-control mb-sm-2 w-25 mb-4" type="number" placeholder="Orden" aria-label="Search" [value]="valor"
+        #inputOrden>
+    
+    <button class="btn btn-primary "(click)="sendOrder(inputOrden.value)">Mandar orden</button>
+    
+    <button class="btn btn-primary ml-2" (click)="sendOrder('abrirVentana')">Abrir ventanas</button>
+    
+    <button class="btn btn-primary ml-2" (click)="sendOrder('cerrarVentana')">Cerrar ventanas</button>
+</ng-template>

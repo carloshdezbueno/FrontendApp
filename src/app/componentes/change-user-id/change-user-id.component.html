@@ -3,5 +3,5 @@
 <button class="btn btn-primary mb-2" (click)="setUserID(inputUserID.value)">Guardar</button>
 
 <div *ngIf="cambiado" class="alert alert-success mt-2" role="alert">
-    UserID cambiado con exito a {{userID}}
+    UserID cambiado con exito a <span [innerHTML]="userID"></span>
 </div>

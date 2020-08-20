@@ -25,8 +25,10 @@ export class ChangeUserIDComponent implements OnInit {
 
   
   setUserID(userID){
+    this.userID = userID;
     this.autService.setUserID(userID);
     this.refreshUserID.emit(userID);
+    this.cambiado = false;
     this.cambiado = true;
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutentificacionService } from 'src/app/providers/autentificacion.service';
+import { RespuestaArduinoPath } from 'src/app/respuesta-arduino-path.model';
 
 @Component({
   selector: 'app-mandar-orden',
@@ -9,12 +10,13 @@ import { AutentificacionService } from 'src/app/providers/autentificacion.servic
 export class MandarOrdenComponent implements OnInit {
 
   valor = 0;
-  constructor(private autService:AutentificacionService) { }
+  constructor(public autService:AutentificacionService) { }
 
   ngOnInit(): void {
   }
 
-  sendOrder(orden){
-    this.autService.sendOrden(orden);
+  async sendOrder(orden){
+    var dato:RespuestaArduinoPath = await this.autService.sendOrden(orden);
+    console.log(dato)
   }
 }

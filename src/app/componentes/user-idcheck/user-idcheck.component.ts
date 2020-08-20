@@ -13,6 +13,7 @@ export class UserIDCheckComponent implements OnInit {
 
   userID:string;
   constructor(private autService:AutentificacionService, private router: Router) { 
+    
     this.userID = this.autService.getUserID();
   }
 

@@ -11,17 +11,38 @@ export class InicioComponent implements OnInit {
 
   userID:string;
   datos:Tiempo[] = null;
-  constructor(private autService:AutentificacionService) { 
+  constructor(public autService:AutentificacionService) { 
     this.userID = this.autService.getUserID();
   }
   ngOnInit(): void {
-    console.log(this.autService.getApiPath())
-    this.autService.getDatosUserID().subscribe( (datos:any) => {
+
+    if(this.autService.getApiPath() == null){
       
-      if(datos.data.length != 0){
-        this.datos = datos.data.sort((a, b) => a - b );
-      }
-    });
+      this.autService.setApiPath().then(()=>{
+
+        if(this.autService.getApiPath() != "NotFound"){
+          this.autService.getDatosUserID().subscribe( (datos:any) => {
+          
+            if(datos.data.length != 0){
+              this.datos = datos.data.sort((a, b) => a - b );
+            }
+          });
+        }
+        
+        
+      });
+
+    }else if(this.autService.getApiPath() != 'NotFound'){
+      this.autService.getDatosUserID().subscribe( (datos:any) => {
+          
+        if(datos.data.length != 0){
+          this.datos = datos.data.sort((a, b) => a - b );
+        }
+      });
+    }
+
+    
+    
   }
 
 }

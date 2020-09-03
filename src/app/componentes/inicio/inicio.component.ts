@@ -24,7 +24,7 @@ export class InicioComponent implements OnInit {
           this.autService.getDatosUserID().subscribe( (datos:any) => {
           
             if(datos.data.length != 0){
-              this.datos = datos.data.sort((a, b) => a - b );
+              this.datos = datos.data.sort((a, b) => b.timestamp - a.timestamp );
             }
           });
         }
